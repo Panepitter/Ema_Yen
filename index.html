@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Emanuele & Yen Love Story 🐻💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header with stats -->
+        <header class="game-header">
+            <div class="stat-group">
+                <div class="stat">
+                    <span class="stat-icon">❤️</span>
+                    <div class="stat-bar">
+                        <div class="stat-fill love-fill" id="loveFill"></div>
+                    </div>
+                    <span class="stat-value" id="loveValue">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">😊</span>
+                    <div class="stat-bar">
+                        <div class="stat-fill happiness-fill" id="happinessFill"></div>
+                    </div>
+                    <span class="stat-value" id="happinessValue">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">⚡</span>
+                    <div class="stat-bar">
+                        <div class="stat-fill energy-fill" id="energyFill"></div>
+                    </div>
+                    <span class="stat-value" id="energyValue">100</span>
+                </div>
+            </div>
+            <div class="level-badge" id="levelBadge" onclick="game.showProgress()">
+                <span class="level-icon">⭐</span>
+                <span id="levelValue">1</span>
+            </div>
+            <div class="coins">
+                <span class="coin-icon">🌸</span>
+                <span id="coinCount">0</span>
+            </div>
+        </header>
+
+        <!-- Main game area -->
+        <main class="game-main">
+            <div class="scene" id="scene">
+                <!-- Dynamic background -->
+                <div class="background" id="background">
+                    <div class="cloud cloud-1"></div>
+                    <div class="cloud cloud-2"></div>
+                    <div class="cloud cloud-3"></div>
+                    <div class="stars" id="stars"></div>
+                </div>
+
+                <!-- Characters -->
+                <div class="characters">
+                    <div class="bear-container" id="bearContainer">
+                        <div class="bear" id="mainBear">
+                            <div class="bear-body">
+                                <div class="bear-head">
+                                    <div class="bear-ear bear-ear-left"></div>
+                                    <div class="bear-ear bear-ear-right"></div>
+                                    <div class="bear-face">
+                                        <div class="bear-eye bear-eye-left">
+                                            <div class="bear-pupil"></div>
+                                        </div>
+                                        <div class="bear-eye bear-eye-right">
+                                            <div class="bear-pupil"></div>
+                                        </div>
+                                        <div class="bear-snout">
+                                            <div class="bear-nose"></div>
+                                            <div class="bear-mouth"></div>
+                                        </div>
+                                        <div class="bear-blush bear-blush-left"></div>
+                                        <div class="bear-blush bear-blush-right"></div>
+                                    </div>
+                                </div>
+                                <div class="bear-torso"></div>
+                                <div class="bear-arm bear-arm-left"></div>
+                                <div class="bear-arm bear-arm-right"></div>
+                            </div>
+                        </div>
+                        <div class="bear-name">Emanuele</div>
+                    </div>
+
+                    <div class="girlfriend-container" id="girlfriendContainer">
+                        <div class="bear girlfriend-bear" id="girlfriendBear">
+                            <div class="bear-body">
+                                <div class="bear-head">
+                                    <div class="bear-ear bear-ear-left"></div>
+                                    <div class="bear-ear bear-ear-right"></div>
+                                    <div class="bow"></div>
+                                    <div class="bear-face">
+                                        <div class="bear-eye bear-eye-left">
+                                            <div class="bear-pupil"></div>
+                                            <div class="eyelash"></div>
+                                        </div>
+                                        <div class="bear-eye bear-eye-right">
+                                            <div class="bear-pupil"></div>
+                                            <div class="eyelash"></div>
+                                        </div>
+                                        <div class="bear-snout">
+                                            <div class="bear-nose"></div>
+                                            <div class="bear-mouth"></div>
+                                        </div>
+                                        <div class="bear-blush bear-blush-left"></div>
+                                        <div class="bear-blush bear-blush-right"></div>
+                                    </div>
+                                </div>
+                                <div class="bear-torso"></div>
+                                <div class="bear-arm bear-arm-left"></div>
+                                <div class="bear-arm bear-arm-right"></div>
+                            </div>
+                        </div>
+                        <div class="bear-name">Yen</div>
+                    </div>
+                </div>
+
+                <!-- Particles and effects -->
+                <div class="particles" id="particles"></div>
+                
+                <!-- Messages and dialogues -->
+                <div class="speech-bubble" id="speechBubble"></div>
+            </div>
+
+            <!-- Status indicator -->
+            <div class="status-indicator" id="statusIndicator"></div>
+        </main>
+
+        <!-- Action bar -->
+        <footer class="action-bar">
+            <button class="action-btn" data-action="feed">
+                <span class="action-icon">🍯</span>
+                <span class="action-label">Feed</span>
+            </button>
+            <button class="action-btn" data-action="play">
+                <span class="action-icon">🎮</span>
+                <span class="action-label">Play</span>
+            </button>
+            <button class="action-btn" data-action="date">
+                <span class="action-icon">💕</span>
+                <span class="action-label">Date</span>
+            </button>
+            <button class="action-btn" data-action="gift">
+                <span class="action-icon">🎁</span>
+                <span class="action-label">Gift</span>
+            </button>
+            <button class="action-btn" data-action="hug">
+                <span class="action-icon">🤗</span>
+                <span class="action-label">Hug</span>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Modal for mini-games -->
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal for shop -->
+    <div class="modal" id="shopModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeShop">✕</button>
+            <h2>Gift Shop 🎁</h2>
+            <div class="shop-items" id="shopItems"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
